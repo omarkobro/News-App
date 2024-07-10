@@ -2,12 +2,12 @@ let apiKey = "06de1c55e8094e77a1ec6eb8dbe9e6d7";
 const container = document.querySelector(".container");
 const optionsContainer = document.querySelector(".options-container");
 const options = ["general", "entertainment", "health", "science", "sports", "technology"];
-let requestURL;
-let country = "us"; // default country
+let requestURL = "https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=06de1c55e8094e77a1ec6eb8dbe9e6d7";
+let country = "us"; 
 
 // Create cards from data
 const generateUI = (articles) => {
-    container.innerHTML = ""; // Clear the container before appending new articles
+    container.innerHTML = ""; 
     for (let item of articles) {
         let card = document.createElement("div");
         card.classList.add("news-card");
@@ -61,10 +61,10 @@ const init = () => {
     const fetchNewsButton = document.getElementById("fetch-news");
 
     fetchNewsButton.addEventListener("click", () => {
-        country = countryCodeInput.value.trim() || "us"; // Use input value or default to "us"
+        country = countryCodeInput.value.trim() || "us"; 
         requestURL = `https://newsapi.org/v2/top-headlines?country=${country}&category=general&apiKey=${apiKey}`;
         createOptions();
-        getNews(); // Ensure getNews() is called after options are created
+        getNews(); 
     });
 };
 
